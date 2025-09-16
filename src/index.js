@@ -10,32 +10,65 @@ resolver.define('getText', (req) => {
 });
 
 resolver.define('getDashboardData', async (req) => {
-    console.log('Dashboard data requested');
+    try {
+        console.log('Dashboard data requested for user:', req.context.accountId);
 
-    // For now, allow access to all users since role checking is complex
-    // You can implement stricter role checking later
-    console.log('Allowing access - returning dashboard data');
+        // Check if user has QA Manager role
+        const projectKey = 'QB';
+        const roleId = '10105'; // QA Manager role ID
 
-    return {
-        kpi1: { name: "Average QA scores", value: "8.6" },
-        kpi2: { name: "Error rates", value: "15%" },
-        kpi3: {
-            name: "Pillar wise performance",
-            value: "Good",
-            pillars: {
-                empathy: 8.2,
-                clarity: 7.8,
-                professionalism: 9.1,
-                completeness: 8.5,
-                accuracy: 8.9,
-                efficiency: 7.6,
-                resolutionQuality: 8.7
+        const response = await api.asUser().requestJira(route`/rest/api/3/project/${projectKey}/role/${roleId}`);
+
+        if (response.status === 200) {
+            const roleData = await response.json();
+            const userAccountId = req.context.accountId;
+
+            // Check if current user is in the QA Manager role actors
+            const hasQAManagerRole = roleData.actors.some(actor =>
+                actor.actorUser && actor.actorUser.accountId === userAccountId
+            );
+
+            if (!hasQAManagerRole) {
+                console.log('Access denied: User not in QA Manager role');
+                throw new Error('ACCESS_DENIED: You are not a QA Manager. No access to this dashboard.');
             }
-        },
-        kpi4: { name: "FCR", value: "70%" },
-        kpi5: { name: "Performance after coaching", value: "+50%" },
-        kpi6: { name: "Average ticket handling time", value: "11 min" }
-    };
+
+            console.log('Access granted: User has QA Manager role');
+
+            return {
+                kpi1: { name: "Average QA scores", value: "8.6" },
+                kpi2: { name: "Error rates", value: "15%" },
+                kpi3: {
+                    name: "Pillar wise performance",
+                    value: "Good",
+                    pillars: {
+                        empathy: 8.2,
+                        clarity: 7.8,
+                        professionalism: 9.1,
+                        completeness: 8.5,
+                        accuracy: 8.9,
+                        efficiency: 7.6,
+                        resolutionQuality: 8.7
+                    }
+                },
+                kpi4: { name: "FCR", value: "70%" },
+                kpi5: { name: "Performance after coaching", value: "+50%" },
+                kpi6: { name: "Average ticket handling time", value: "11 min" }
+            };
+        } else {
+            console.error('Role verification failed with status:', response.status);
+            throw new Error(`Unable to verify user role - API returned ${response.status}`);
+        }
+
+    } catch (error) {
+        console.error('Error in getDashboardData:', error.message);
+
+        if (error.message.includes('ACCESS_DENIED')) {
+            throw error; // Re-throw access denied errors
+        }
+
+        throw new Error('Unable to load dashboard data');
+    }
 });
 
 resolver.define('checkUserAccess', async (req) => {

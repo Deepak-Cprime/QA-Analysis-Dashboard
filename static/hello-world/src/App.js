@@ -103,44 +103,67 @@ function App() {
     const [dashboardData, setDashboardData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isPillarsExpanded, setIsPillarsExpanded] = useState(false);
+    const [accessError, setAccessError] = useState(null);
 
     useEffect(() => {
-        // Load dashboard data directly
-        invoke('getDashboardData').then(setDashboardData).catch(() => {
-            setDashboardData({
-                kpi1: { name: "Average QA scores", value: "8.6" },
-                kpi2: { name: "Error rates", value: "15%" },
-                kpi3: { 
-                    name: "Pillar wise performance", 
-                    value: "Good",
-                    pillars: {
-                        empathy: 8.2,
-                        clarity: 7.8,
-                        professionalism: 9.1,
-                        completeness: 8.5,
-                        accuracy: 8.9,
-                        efficiency: 7.6,
-                        resolutionQuality: 8.7
-                    }
-                },
-                kpi4: { name: "FCR", value: "70%" },
-                kpi5: { name: "Performance after coaching", value: "+50%" },
-                kpi6: { name: "Average ticket handling time", value: "11 min" }
-            });
-        }).finally(() => {
-            setIsLoading(false);
-        });
+        const loadDashboardData = async () => {
+            try {
+                const data = await invoke('getDashboardData');
+                setDashboardData(data);
+            } catch (error) {
+                console.error('Error loading dashboard data:', error);
+                if (error.message && error.message.includes('ACCESS_DENIED')) {
+                    setAccessError("You are not a QA Manager. No access to this dashboard.");
+                } else {
+                    setAccessError("Unable to load dashboard data. Please try again.");
+                }
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        loadDashboardData();
     }, []);
 
-    if (isLoading || !dashboardData) {
+    if (isLoading) {
         return (
-            <div style={{ 
-                padding: '20px', 
+            <div style={{
+                padding: '20px',
                 textAlign: 'center',
                 color: '#666'
             }}>
                 <h2>QA Dashboard</h2>
                 <p>Loading...</p>
+            </div>
+        );
+    }
+
+    // Show error message if access denied or other error
+    if (accessError) {
+        return (
+            <div style={{
+                padding: '40px',
+                textAlign: 'center',
+                backgroundColor: '#f5f5f5',
+                minHeight: '100vh'
+            }}>
+                <h2 style={{ color: '#d32f2f', marginBottom: '20px' }}>Access Denied</h2>
+                <p style={{ color: '#666', fontSize: '16px' }}>
+                    {accessError}
+                </p>
+            </div>
+        );
+    }
+
+    if (!dashboardData) {
+        return (
+            <div style={{
+                padding: '20px',
+                textAlign: 'center',
+                color: '#666'
+            }}>
+                <h2>QA Dashboard</h2>
+                <p>No data available...</p>
             </div>
         );
     }
@@ -159,38 +182,49 @@ function App() {
                 marginTop: '0'
             }}>QA Dashboard</h1>
             
+            {/* First Row - Regular KPI Cards */}
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '20px',
+                maxWidth: '1200px',
+                marginBottom: '20px'
+            }}>
+                <KPICard
+                    title={dashboardData.kpi1.name}
+                    value={dashboardData.kpi1.value}
+                />
+                <KPICard
+                    title={dashboardData.kpi2.name}
+                    value={dashboardData.kpi2.value}
+                />
+                <KPICard
+                    title={dashboardData.kpi4.name}
+                    value={dashboardData.kpi4.value}
+                />
+                <KPICard
+                    title={dashboardData.kpi5.name}
+                    value={dashboardData.kpi5.value}
+                />
+                <KPICard
+                    title={dashboardData.kpi6.name}
+                    value={dashboardData.kpi6.value}
+                />
+            </div>
+
+            {/* Second Row - Dropdown Containing Card */}
             <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                 gap: '20px',
                 maxWidth: '1200px'
             }}>
-                <KPICard 
-                    title={dashboardData.kpi1.name}
-                    value={dashboardData.kpi1.value}
-                />
-                <KPICard 
-                    title={dashboardData.kpi2.name}
-                    value={dashboardData.kpi2.value}
-                />
-                <PillarPerformanceCard 
+                <PillarPerformanceCard
                     title={dashboardData.kpi3.name}
                     value={dashboardData.kpi3.value}
                     pillars={dashboardData.kpi3.pillars}
                     isExpanded={isPillarsExpanded}
                     onToggle={() => setIsPillarsExpanded(!isPillarsExpanded)}
-                />
-                <KPICard 
-                    title={dashboardData.kpi4.name}
-                    value={dashboardData.kpi4.value}
-                />
-                <KPICard 
-                    title={dashboardData.kpi5.name}
-                    value={dashboardData.kpi5.value}
-                />
-                <KPICard 
-                    title={dashboardData.kpi6.name}
-                    value={dashboardData.kpi6.value}
                 />
             </div>
         </div>
