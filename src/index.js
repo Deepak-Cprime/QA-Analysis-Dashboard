@@ -20,7 +20,7 @@ resolver.define('getDashboardData', async (req) => {
         console.log('Dashboard data requested for user:', req.context.accountId);
 
         // Validate user access
-        await authService.validateAccess(req.context.accountId, 'dashboard');
+        await authService.validateAccess(req.context.accountId, 'dashboard', req.context);
 
         // Get dashboard data
         const dashboardData = await dashboardService.getDashboardData();
@@ -42,7 +42,7 @@ resolver.define('getAgentData', async (req) => {
         console.log('Agent data requested for user:', req.context.accountId);
 
         // Validate user access
-        await authService.validateAccess(req.context.accountId, 'agent data');
+        await authService.validateAccess(req.context.accountId, 'agent data', req.context);
 
         // Get agent data
         const agentData = await agentService.getAgentData();
