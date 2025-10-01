@@ -58,9 +58,16 @@ const PillarPerformanceCard = ({ title, value, pillars, isExpanded, onToggle }) 
                         <div style={{
                             color: '#666',
                             marginBottom: '2px',
-                            textTransform: 'capitalize'
+                            lineHeight: '1.3'
                         }}>
-                            {key === 'resolutionQuality' ? 'Resolution Quality' : key}
+                            {key === 'empathy' ? 'Empathy' :
+                             key === 'clarity' ? 'Clarity' :
+                             key === 'completeness' ? 'Completeness' :
+                             key === 'professionalism' ? 'Professionalism' :
+                             key === 'ticketManagement' ? 'Ticket Management' :
+                             key === 'slaFirstResponse' ? 'SLA to first response' :
+                             key === 'slaResolution' ? 'SLA to resolution' :
+                             key}
                         </div>
                         <div style={{
                             fontWeight: 'bold',

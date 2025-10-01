@@ -13,16 +13,17 @@ export const getDashboardKPIs = () => {
             pillars: {
                 empathy: 8.2,
                 clarity: 7.8,
-                professionalism: 9.1,
                 completeness: 8.5,
-                accuracy: 8.9,
-                efficiency: 7.6,
-                resolutionQuality: 8.7
+                professionalism: 9.1,
+                ticketManagement: 8.3,
+                slaFirstResponse: 7.9,
+                slaResolution: 8.1
             }
         },
         kpi4: { name: "FCR", value: "70%" },
         kpi5: { name: "Performance after coaching", value: "+50%" },
-        kpi6: { name: "Average ticket handling time", value: "11 min" }
+        kpi6: { name: "Average ticket handling time", value: "11 min" },
+        kpi7: { name: "CSAT", value: "3.8/5" }
     };
 };
 
@@ -38,14 +39,15 @@ export const dashboardSchema = {
         pillars: {
             empathy: Number,
             clarity: Number,
-            professionalism: Number,
             completeness: Number,
-            accuracy: Number,
-            efficiency: Number,
-            resolutionQuality: Number
+            professionalism: Number,
+            ticketManagement: Number,
+            slaFirstResponse: Number,
+            slaResolution: Number
         }
     },
     kpi4: { name: String, value: String },
     kpi5: { name: String, value: String },
-    kpi6: { name: String, value: String }
+    kpi6: { name: String, value: String },
+    kpi7: { name: String, value: String }
 };

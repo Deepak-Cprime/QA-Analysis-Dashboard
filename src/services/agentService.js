@@ -173,9 +173,9 @@ export class AgentService {
 
         // Validate metrics structure
         const requiredMetrics = [
-            'empathy', 'clarity', 'professionalism', 'completeness',
-            'accuracy', 'efficiency', 'resolutionQuality', 'errorRate',
-            'fcr', 'avgTicketTime', 'postCoachingImprovement'
+            'empathy', 'clarity', 'completeness', 'professionalism',
+            'ticketManagement', 'slaFirstResponse', 'slaResolution', 'errorRate',
+            'fcr', 'avgTicketTime', 'postCoachingImprovement', 'customerSatisfactionScore'
         ];
 
         for (const metric of requiredMetrics) {

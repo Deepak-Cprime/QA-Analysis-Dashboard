@@ -41,6 +41,8 @@ function App() {
                 return `${value} min`;
             case 'postCoachingImprovement':
                 return `+${value}%`;
+            case 'customerSatisfactionScore':
+                return `${value}/5`;
             default:
                 return value;
         }
@@ -246,6 +248,10 @@ function App() {
                         <KPICard
                             title={dashboardData.kpi6.name}
                             value={dashboardData.kpi6.value}
+                        />
+                        <KPICard
+                            title={dashboardData.kpi7.name}
+                            value={dashboardData.kpi7.value}
                         />
                     </div>
 

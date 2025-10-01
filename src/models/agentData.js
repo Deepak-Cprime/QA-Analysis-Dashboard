@@ -15,15 +15,16 @@ export const getAgentsData = () => {
             metrics: {
                 empathy: 8.2,
                 clarity: 7.8,
-                professionalism: 9.1,
                 completeness: 8.5,
-                accuracy: 8.9,
-                efficiency: 7.6,
-                resolutionQuality: 8.7,
+                professionalism: 9.1,
+                ticketManagement: 8.3,
+                slaFirstResponse: 7.9,
+                slaResolution: 8.1,
                 errorRate: 12,
                 fcr: 75,
                 avgTicketTime: 9,
-                postCoachingImprovement: 45
+                postCoachingImprovement: 45,
+                customerSatisfactionScore: 4.2
             },
             recentPerformance: {
                 thisMonth: 8.6,
@@ -41,15 +42,16 @@ export const getAgentsData = () => {
             metrics: {
                 empathy: 7.5,
                 clarity: 8.2,
-                professionalism: 8.8,
                 completeness: 7.9,
-                accuracy: 8.1,
-                efficiency: 8.3,
-                resolutionQuality: 8.0,
+                professionalism: 8.8,
+                ticketManagement: 8.0,
+                slaFirstResponse: 8.1,
+                slaResolution: 7.8,
                 errorRate: 18,
                 fcr: 68,
                 avgTicketTime: 12,
-                postCoachingImprovement: 38
+                postCoachingImprovement: 38,
+                customerSatisfactionScore: 3.8
             },
             recentPerformance: {
                 thisMonth: 8.1,
@@ -67,15 +69,16 @@ export const getAgentsData = () => {
             metrics: {
                 empathy: 9.3,
                 clarity: 8.9,
-                professionalism: 9.5,
                 completeness: 9.0,
-                accuracy: 9.2,
-                efficiency: 8.8,
-                resolutionQuality: 9.1,
+                professionalism: 9.5,
+                ticketManagement: 9.2,
+                slaFirstResponse: 8.8,
+                slaResolution: 9.1,
                 errorRate: 8,
                 fcr: 82,
                 avgTicketTime: 8,
-                postCoachingImprovement: 62
+                postCoachingImprovement: 62,
+                customerSatisfactionScore: 4.6
             },
             recentPerformance: {
                 thisMonth: 9.3,
@@ -93,15 +96,16 @@ export const getAgentsData = () => {
             metrics: {
                 empathy: 8.0,
                 clarity: 8.5,
-                professionalism: 9.0,
                 completeness: 8.8,
-                accuracy: 8.9,
-                efficiency: 8.4,
-                resolutionQuality: 8.6,
+                professionalism: 9.0,
+                ticketManagement: 8.4,
+                slaFirstResponse: 8.2,
+                slaResolution: 8.6,
                 errorRate: 14,
                 fcr: 72,
                 avgTicketTime: 10,
-                postCoachingImprovement: 52
+                postCoachingImprovement: 52,
+                customerSatisfactionScore: 4.1
             },
             recentPerformance: {
                 thisMonth: 8.9,
@@ -119,15 +123,16 @@ export const getAgentsData = () => {
             metrics: {
                 empathy: 8.7,
                 clarity: 7.9,
-                professionalism: 8.6,
                 completeness: 8.1,
-                accuracy: 8.3,
-                efficiency: 7.8,
-                resolutionQuality: 8.4,
+                professionalism: 8.6,
+                ticketManagement: 8.0,
+                slaFirstResponse: 7.8,
+                slaResolution: 8.3,
                 errorRate: 16,
                 fcr: 69,
                 avgTicketTime: 13,
-                postCoachingImprovement: 41
+                postCoachingImprovement: 41,
+                customerSatisfactionScore: 3.9
             },
             recentPerformance: {
                 thisMonth: 8.4,
@@ -145,15 +150,16 @@ export const getAgentsData = () => {
             metrics: {
                 empathy: 7.0,
                 clarity: 7.5,
-                professionalism: 8.2,
                 completeness: 7.1,
-                accuracy: 7.8,
-                efficiency: 6.9,
-                resolutionQuality: 7.4,
+                professionalism: 8.2,
+                ticketManagement: 7.3,
+                slaFirstResponse: 6.9,
+                slaResolution: 7.4,
                 errorRate: 22,
                 fcr: 62,
                 avgTicketTime: 15,
-                postCoachingImprovement: 28
+                postCoachingImprovement: 28,
+                customerSatisfactionScore: 3.4
             },
             recentPerformance: {
                 thisMonth: 7.5,
@@ -171,15 +177,16 @@ export const getAgentsData = () => {
             metrics: {
                 empathy: 9.1,
                 clarity: 8.7,
-                professionalism: 9.2,
                 completeness: 8.8,
-                accuracy: 8.9,
-                efficiency: 8.6,
-                resolutionQuality: 9.0,
+                professionalism: 9.2,
+                ticketManagement: 8.9,
+                slaFirstResponse: 8.6,
+                slaResolution: 9.0,
                 errorRate: 10,
                 fcr: 78,
                 avgTicketTime: 9,
-                postCoachingImprovement: 55
+                postCoachingImprovement: 55,
+                customerSatisfactionScore: 4.4
             },
             recentPerformance: {
                 thisMonth: 9.1,
@@ -197,15 +204,16 @@ export const getAgentsData = () => {
             metrics: {
                 empathy: 6.5,
                 clarity: 7.1,
-                professionalism: 7.8,
                 completeness: 6.9,
-                accuracy: 7.0,
-                efficiency: 6.2,
-                resolutionQuality: 6.7,
+                professionalism: 7.8,
+                ticketManagement: 6.8,
+                slaFirstResponse: 6.2,
+                slaResolution: 6.7,
                 errorRate: 28,
                 fcr: 55,
                 avgTicketTime: 18,
-                postCoachingImprovement: 22
+                postCoachingImprovement: 22,
+                customerSatisfactionScore: 3.1
             },
             recentPerformance: {
                 thisMonth: 6.9,
@@ -223,15 +231,16 @@ export const getAgentsData = () => {
             metrics: {
                 empathy: 8.8,
                 clarity: 8.4,
-                professionalism: 8.9,
                 completeness: 8.7,
-                accuracy: 8.5,
-                efficiency: 8.2,
-                resolutionQuality: 8.6,
+                professionalism: 8.9,
+                ticketManagement: 8.5,
+                slaFirstResponse: 8.2,
+                slaResolution: 8.6,
                 errorRate: 13,
                 fcr: 74,
                 avgTicketTime: 11,
-                postCoachingImprovement: 48
+                postCoachingImprovement: 48,
+                customerSatisfactionScore: 4.3
             },
             recentPerformance: {
                 thisMonth: 8.8,
@@ -249,19 +258,47 @@ export const getAgentsData = () => {
             metrics: {
                 empathy: 7.4,
                 clarity: 7.9,
-                professionalism: 8.1,
                 completeness: 7.6,
-                accuracy: 7.8,
-                efficiency: 7.5,
-                resolutionQuality: 7.7,
+                professionalism: 8.1,
+                ticketManagement: 7.5,
+                slaFirstResponse: 7.3,
+                slaResolution: 7.7,
                 errorRate: 19,
                 fcr: 65,
                 avgTicketTime: 14,
-                postCoachingImprovement: 35
+                postCoachingImprovement: 35,
+                customerSatisfactionScore: 3.7
             },
             recentPerformance: {
                 thisMonth: 7.9,
                 lastMonth: 7.5,
+                trend: "improving"
+            }
+        },
+        {
+            id: 11,
+            name: "Alex Johnson",
+            email: "alex.johnson@company.com",
+            department: "Customer Support",
+            hireDate: "2023-08-15",
+            overallScore: 8.5,
+            metrics: {
+                empathy: 8.4,
+                clarity: 8.6,
+                completeness: 8.3,
+                professionalism: 8.8,
+                ticketManagement: 8.5,
+                slaFirstResponse: 8.2,
+                slaResolution: 8.7,
+                errorRate: 11,
+                fcr: 76,
+                avgTicketTime: 10,
+                postCoachingImprovement: 50,
+                customerSatisfactionScore: 4.3
+            },
+            recentPerformance: {
+                thisMonth: 8.7,
+                lastMonth: 8.3,
                 trend: "improving"
             }
         }
@@ -281,15 +318,16 @@ export const agentSchema = {
     metrics: {
         empathy: Number,
         clarity: Number,
-        professionalism: Number,
         completeness: Number,
-        accuracy: Number,
-        efficiency: Number,
-        resolutionQuality: Number,
+        professionalism: Number,
+        ticketManagement: Number,
+        slaFirstResponse: Number,
+        slaResolution: Number,
         errorRate: Number,
         fcr: Number,
         avgTicketTime: Number,
-        postCoachingImprovement: Number
+        postCoachingImprovement: Number,
+        customerSatisfactionScore: Number
     },
     recentPerformance: {
         thisMonth: Number,

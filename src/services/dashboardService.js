@@ -49,7 +49,7 @@ export class DashboardService {
      * @returns {boolean} True if data is valid
      */
     validateDashboardData(data) {
-        const requiredKPIs = ['kpi1', 'kpi2', 'kpi3', 'kpi4', 'kpi5', 'kpi6'];
+        const requiredKPIs = ['kpi1', 'kpi2', 'kpi3', 'kpi4', 'kpi5', 'kpi6','kpi7'];
 
         for (const kpi of requiredKPIs) {
             if (!data[kpi] || !data[kpi].name || !data[kpi].value) {
@@ -76,7 +76,7 @@ export class DashboardService {
             const data = await this.getDashboardData();
 
             return {
-                totalKPIs: 6,
+                totalKPIs: 7,
                 lastUpdated: new Date().toISOString(),
                 summary: {
                     averageQAScore: data.kpi1.value,
